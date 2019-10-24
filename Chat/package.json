@@ -1,0 +1,28 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "Chat for Saga",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanBon2/Saga.git"
+  },
+  "keywords": [
+    "Saga"
+  ],
+  "author": "Jean & Khalid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeanBon2/Saga/issues"
+  },
+  "homepage": "https://github.com/JeanBon2/Saga#readme",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
