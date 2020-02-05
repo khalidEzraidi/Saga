@@ -206,7 +206,7 @@ var synonyms = {
  * Ex.
  * User> I am extremely happy
  * this becomes "I am happy"
- * Eliza> Why are you happy?
+ * Saga> Why are you happy?
  * 
  * Ex.
  * User> I am sad because i wish i was happy
@@ -242,20 +242,20 @@ var usedResponses = [];
 
 /*
  * Initial function to start the coversation with
- * Eliza. This decides the initial message.
+ * Saga. This decides the initial message.
  *
  * Adds response keywords and synonyms with weight.
  * Sorts the responses by weight so the more important
  * meaningful is found first.
  */
-function startElizaChat(){
+function startSagaChat(){
 	
 	//sorts keywords (keywords and similar word) into array based on weight.
 	getKeywordsByWeight();
 
 
 	var initialMessage = initialMessages[Math.floor(Math.random()*initialMessages.length)];
-	chatHistory.push({ isEliza : true, content : initialMessage });
+	chatHistory.push({ isSaga : true, content : initialMessage });
 	displayChat();
 
 }
@@ -325,14 +325,14 @@ function getKeywordsByWeight(){
 	}
 }
 /*
- * SendElizaNewMessage is a function used for a one input, and one response
+ * SendSagaNewMessage is a function used for a one input, and one response
  * output. The idea is; here is where it gets the output from analyze but
  * this function manipulates the UI.
  */
-function sendElizaNewMessage(newMessage){
+function sendSagaNewMessage(newMessage){
 	
 	//Add to UI
-	chatHistory.push({ isEliza : false, content : newMessage });
+	chatHistory.push({ isSaga : false, content : newMessage });
 	displayChat();
 	clearSendTextbox();
 
@@ -345,17 +345,17 @@ function sendElizaNewMessage(newMessage){
 		var response = "Our conversation has ended. Refresh the page to start again.";
 	}
 
-	//Shows the reply from Eliza. To make it seem more real, takes a
+	//Shows the reply from Saga. To make it seem more real, takes a
 	//random short time to response. Reloads the chat.
 	setTimeout(function(){
 		usedResponses.push(response);
-		chatHistory.push({ isEliza : true, content : response });
+		chatHistory.push({ isSaga : true, content : response });
 		displayChat();
 	}, determineResponseTime());
 
 }
 /*
- * Analyze is Eliza's main function get a response based on
+ * Analyze is Saga's main function get a response based on
  * user's current input. It also takes in consideration the
  * past messages, and a responses user/client engagement.
  */
@@ -498,7 +498,7 @@ function processInput(message){
 }
 /*
  * Replaces the context of words, flipping
- * the voice from the user to eliza.
+ * the voice from the user to saga.
  * 
  * It's split into an array so it doesn't
  * replace back and forth. Ex. me->i i->me

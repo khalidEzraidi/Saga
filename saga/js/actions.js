@@ -23,7 +23,7 @@ function getUserInput(){
 	if(inputFromUser == null || inputFromUser != null && inputFromUser.length == 0){
 		error("Error: Input cannot be blank");
 	}else{
-		sendElizaNewMessage(inputFromUser);
+		sendSagaNewMessage(inputFromUser);
 	}
 }
 /*
@@ -37,22 +37,22 @@ function error(message){
  * Refreshes the HTML based on the 
  * chat history array which is a list
  * of chat messages sent from the user
- * and eliza.
+ * and saga.
  */
 function displayChat(){
 	//console.log("displayChat");
 	
 	var html = '';
 	if(chatHistory.length == 0){
-		startElizaChat();
+		startSagaChat();
 	}else{
 		for(var i = 0;i < chatHistory.length;i++){
 
 			var currentMessage = chatHistory[i];
 			// console.log("loop");
 
-			if(currentMessage.isEliza){
-				html += getElizaMessageHTML(currentMessage.content);
+			if(currentMessage.isSaga){
+				html += getSagaMessageHTML(currentMessage.content);
 			}else{
 				html += getUserMessageHTML(currentMessage.content);
 			}
@@ -65,10 +65,10 @@ function displayChat(){
 	//console.log($('#body')[0].scrollHeight);
 }
 /*
- * HTML for Eliza's message
+ * HTML for Saga's message
  */
-function getElizaMessageHTML(message){
-	return '<div class="chat-message-outter-wrapper"><img src="./assets/imgs/guy.png" class="chat-message-icon"><div class="chat-message-wrapper eliza-message"><p class="chat-message-text text-left">' + message + '</p><p class="chat-user-text">Eliza</p></div></div>';
+function getSagaMessageHTML(message){
+	return '<div class="chat-message-outter-wrapper"><img src="./assets/imgs/guy.png" class="chat-message-icon"><div class="chat-message-wrapper saga-message"><p class="chat-message-text text-left">' + message + '</p><p class="chat-user-text">Saga</p></div></div>';
 }
 /*
  * HTML for User's message
