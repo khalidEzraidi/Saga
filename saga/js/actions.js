@@ -68,7 +68,7 @@ function displayChat(){
  * HTML for Saga's message
  */
 function getSagaMessageHTML(message){
-	return '<div class="chat-message-outter-wrapper"><img src="./assets/imgs/guy.png" class="chat-message-icon"><div class="chat-message-wrapper saga-message"><p class="chat-message-text text-left">' + message + '</p><p class="chat-user-text">Saga</p></div></div>';
+	return '<div class="chat-message-outter-wrapper"><img src="./assets/imgs/woman.jpg" class="chat-message-icon"><div class="chat-message-wrapper saga-message"><p class="chat-message-text text-left">' + message + '</p><p class="chat-user-text">Saga</p></div></div>';
 }
 /*
  * HTML for User's message
