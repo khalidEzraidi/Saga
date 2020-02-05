@@ -4,10 +4,6 @@ var currentNotifications = [];
  * Run on page shows
  */
 $(document).ready(function(){
-	setTimeout(function(){
-		createInfoNotification("If you like this project, please go star it!",6);
-	}, 1000);
-
 	/*
 	 * Checks every seconds
 	 */
